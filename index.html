@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 	<link rel="stylesheet" href="mystyle.css">
-	<title>pygeoapi eMOTIONAL Cities instance - Example features </title>
+	<title>pygeoapi eMOTIONAL Cities instance - Sample Vector Tiles</title>
     <link rel="stylesheet" href="https://unpkg.com/mini.css@3.0.1/dist/mini-default.min.css">
     <link rel="stylesheet" href="https://emotional.byteroad.net/static/css/default.css">
     <!--[if lt IE 9]>
@@ -25,18 +25,25 @@
     <script>
 
 		var tileset = "WorldCRS84Quad";
-		//document.getElementById("tilejson").href = "https://emotional.byteroad.net/collections/masked/tiles/" + tileset + "/metadata";
 
-		
 		var map = L.map('map').setView([38.71509, -9.13137], 15);
 
-		map.addLayer(new  L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png', {
+/* 		map.addLayer(new  L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png', {
 			attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 			subdomains: 'abcd',
 			minZoom: 1,
 			maxZoom: 16,
 			ext: 'jpg'
+		})); */
+
+		map.addLayer(new  L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}{r}.{ext}', {
+			attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+			subdomains: 'abcd',
+			minZoom: 0,
+			maxZoom: 18,
+			ext: 'png'
 		}));
+
 
 		var tilesUrl = 'https://emotional.byteroad.net/collections/masked/tiles/{tileMatrixSetId}/{tileMatrix}/{tileRow}/{tileCol}?f=mvt';
 			
